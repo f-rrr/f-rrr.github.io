@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francesca Martinucci | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #608abf;
+      --lavender-dark: #608abf;
+      --gray-light: #f7f7f8;
+      --text-color: #636466;
+      --accent: #7a7adb;
+      --bg: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 999;
+      animation: fadeDown 0.8s ease;
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 140px auto 80px;
+      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--lavender);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--lavender-dark);
+    }
+
+    .hero-text h2 {
+      margin-top: 0.3rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: var(--lavender-dark);
+      margin-right: 1rem;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    .socials a:hover {
+      opacity: 0.7;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    section h3 {
+      color: var(--lavender-dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-block {
+      background: var(--gray-light);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--gray-light);
+      padding: 2rem;
+      border-radius: 10px;
+      animation: fadeIn 1s ease;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .contact-form button {
+      background: var(--lavender-dark);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: var(--lavender);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      padding: 20px 1rem;
+    }
+
+    @media(max-width:768px){
+      .hero {flex-direction: column; align-items: center; text-align: center;}
+      .hero-text h1{font-size:1.8rem;}
+      .hero img{width:150px;height:150px;}
+    }
+  
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 240px;
+      font-size: 1rem;
+      background: var(--gray-light);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .contact-info a {
+      color: var(--lavender-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      opacity: 0.7;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    @media(max-width:768px){
+      .contact-container {flex-direction: column;}
+    }
+  .contact-wrapper {display:flex; gap:2rem; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;}
+.contact-info {flex:1; min-width:250px;}
+.contact-info h4 {color: var(--lavender-dark); margin-bottom:1rem;}
+.contact-info a {color: var(--lavender-dark); text-decoration:none;}
+.contact-info a:hover {text-decoration:underline;}
+.contact-form {flex:1; min-width:280px;}
+.contact-info { color: var(--text-color); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><strong>FM</strong></div>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Technical Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="profile.png" alt="Francesca Martinucci">
+    <div class="hero-text">
+      <h1>Francesca Martinucci</h1>
+      <h2>BI Developer & Data Analyst | Passionate about Data, Development & Innovation | Aspiring Data Scientist</h2>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/francesca-martinucci-514358365">LinkedIn</a>
+        <a href="https://github.com/f-rrr/tesi-valutazione-metodi-graph-ml">GitHub</a>
+        <a href="mailto:francesca.martinucci@icloud.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h3>About Me</h3>
+    <p>Data Analyst & BI Developer with proven experience in complex Energy & Utilities projects. Skilled in data analysis, software development, and problem-solving, with a strong focus on improving data quality and optimizing data workflows. Known for curiosity, precision, and technical creativity.</p>
+    <p>Seeking a mid-level Data Analyst or Data Scientist role in a dynamic, collaborative, and innovation-driven environment, open to international opportunities.</p>
+  </section>
+
+  <section id="education">
+    <h3>Education</h3>
+    <ul>
+      <li><b>Master’s Degree in Data Science for Economics and Health</b> — University of Milan “La Statale” (In progress)<br>Focus on data analysis, statistical modeling, machine learning, and health & economic applications.</li>
+      <li><b>Bachelor’s Degree in Computer Science for New Media Communication</b> — University of Milan “La Statale” (2025)<br><i>Thesis:</i> Evaluation of Graph Machine Learning Methods for RNA–Disease Interaction Prediction.</li>
+      <li><b>High School Diploma – International Linguistic High School (French track – Esabac program)</b> — Liceo Ginnasio Statale Aristosseno Taranto (2019)</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h3>Experience</h3>
+    <p><b>BI Developer & Data Analyst</b><br>Lynx Spa – Consulting Company – Milan, Italy (2022 – Present)</p>
+    <ul>
+      <li>Development and maintenance of Business Intelligence solutions for Eni Plenitude in the Energy & Utilities sector. Initially using QlikView, currently leveraging Python, PySpark and advanced SQL within the Microsoft Azure cloud environment, using Azure DevOps for version control and project management.</li>
+      <li>Analysis of large-scale datasets (tens of millions of records) to detect anomalies, inconsistencies and data quality issues.</li>
+      <li>Automation of data validation processes, reducing analysis time and improving reporting reliability.</li>
+      <li>Collaboration with cross-functional teams to define requirements, perform functional testing (ST, UAT), and support documentation and delivery.</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h3>Technical Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-block"><b>Programming Languages</b>Python, PySpark, SQL, Go, Java, HTML, CSS, JavaScript, PHP, React Native</div>
+      <div class="skill-block"><b>Data Tools & Libraries</b>Pandas, NumPy, Scikit-learn, Power BI, QlikView, Excel (Advanced, VBA)</div>
+      <div class="skill-block"><b>Data Engineering & Cloud</b>Microsoft Azure, Azure DevOps, REST APIs, Git, GitHub, ETL workflows</div>
+      <div class="skill-block"><b>Database Management</b>SQL Server, relational databases, data modeling</div>
+      <div class="skill-block"><b>Machine Learning & AI</b>Supervised & Unsupervised Learning, Graph ML (GNNs, link prediction, node classification), Scikit-learn, PyTorch, TensorFlow</div>
+      <div class="skill-block"><b>Other Tools</b>Microsoft Suite, Visual Studio Code, Jupyter Notebook, Jira</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact</h3>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h4>Get in Touch</h4>
+        <p><strong>Phone:</strong> +39 392 451 5558</p>
+        <p><strong>Email:</strong> <a href="mailto:francesca.martinucci@icloud.com">francesca.martinucci@icloud.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/francesca-martinucci-514358365/">linkedin.com/in/francesca-martinucci</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/f-rrr/tesi-valutazione-metodi-graph-ml">github.com/f-rrr/</a></p>
+    </div>
+
+    <div class="contact-form">
+      <form action="mailto:francesca.martinucci@icloud.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 - Francesca Martinucci - All rights reserved.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>
